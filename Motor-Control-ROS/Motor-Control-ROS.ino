@@ -23,7 +23,7 @@
 #include <ros.h>
 
 // Including Message Type
-#include <std_msgs/Empty.h>
+#include <std_msgs/String.h>
 
 // Including Motor Declaration to use with Motor Shield V1
 AF_DCMotor motor_Right(1); //M1
@@ -35,7 +35,7 @@ ros::NodeHandle  nh;
 // Functions for Subsribers
 
 // Function 'MOVE FORWARD' in ROS Style ( Message, Type)
-void message_forward( const std_msgs::Empty& toggle_msg){
+void message_forward( const std_msgs::String& toggle_msg){
 
   // Includes forward function
   forward();
@@ -43,7 +43,7 @@ void message_forward( const std_msgs::Empty& toggle_msg){
 }
 
 // Function 'ROBOT MOVEMENT PAUSE' in ROS Style ( Message, Type)
-void message_pause( const std_msgs::Empty& toggle_msgs){
+void message_pause( const std_msgs::String& toggle_msgs){
 
   // Includes stop function
   stopping();
@@ -51,7 +51,7 @@ void message_pause( const std_msgs::Empty& toggle_msgs){
 }
 
 // Function 'MOVE BACKWARD' in ROS Style ( Message, Type)
-void message_backward( const std_msgs::Empty& toggle_msg){
+void message_backward( const std_msgs::String& toggle_msg){
 
   // Includes backward function
   backward();
@@ -59,7 +59,7 @@ void message_backward( const std_msgs::Empty& toggle_msg){
 }
 
 // Function 'MOVE LEFT' in ROS Style ( Message, Type)
-void message_left( const std_msgs::Empty& toggle_msgs){
+void message_left( const std_msgs::String& toggle_msgs){
 
   // Includes left function
   left();
@@ -67,7 +67,7 @@ void message_left( const std_msgs::Empty& toggle_msgs){
 }
 
 // Function 'MOVE RIGHT' in ROS Style ( Message, Type)
-void message_right( const std_msgs::Empty& toggle_msg){
+void message_right( const std_msgs::String& toggle_msg){
 
   // Includes right function
   right();
@@ -75,7 +75,7 @@ void message_right( const std_msgs::Empty& toggle_msg){
 }
 
 // Function 'SPIN LEFT' in ROS Style ( Message, Type)
-void message_spin_left( const std_msgs::Empty& toggle_msgs){
+void message_spin_left( const std_msgs::String& toggle_msgs){
 
   // Includes spin to the left function
   spinLeft();
@@ -83,7 +83,7 @@ void message_spin_left( const std_msgs::Empty& toggle_msgs){
 }
 
 // Function 'SPIN RIGHT' in ROS Style ( Message, Type)
-void message_spin_right( const std_msgs::Empty& toggle_msgs){
+void message_spin_right( const std_msgs::String& toggle_msgs){
 
   // Includes spin to the right function
   spinRight();
@@ -94,25 +94,25 @@ void message_spin_right( const std_msgs::Empty& toggle_msgs){
 // "motor_forward" can be changed to any other variable
 
 // ROS SUBSCRIBER, Subscribes to message forward and robot moves forward
-ros::Subscriber<std_msgs::Empty> sub("motor_forward", &message_forward);
+ros::Subscriber<std_msgs::String> sub("motor_forward", &message_forward);
 
 // ROS SUBSCRIBER, Subscribes to message pause and robot pauses
-ros::Subscriber<std_msgs::Empty> sub1("motor_stop", &message_pause);
+ros::Subscriber<std_msgs::String> sub1("motor_stop", &message_pause);
 
 // ROS SUBSCRIBER, Subscribes to message backward and robot moves backward
-ros::Subscriber<std_msgs::Empty> sub2("motor_backward", &message_backward);
+ros::Subscriber<std_msgs::String> sub2("motor_backward", &message_backward);
 
 // ROS SUBSCRIBER, Subscribes to message left and robot moves left
-ros::Subscriber<std_msgs::Empty> sub3("motor_left", &message_left);
+ros::Subscriber<std_msgs::String> sub3("motor_left", &message_left);
 
 // ROS SUBSCRIBER, Subscribes to message right and robot moves right
-ros::Subscriber<std_msgs::Empty> sub4("motor_right", &message_right);
+ros::Subscriber<std_msgs::String> sub4("motor_right", &message_right);
 
 // ROS SUBSCRIBER, Subscribes to message spin left and robot spins left
-ros::Subscriber<std_msgs::Empty> sub5("motor_spin_left", &message_spin_left);
+ros::Subscriber<std_msgs::String> sub5("motor_spin_left", &message_spin_left);
 
 // ROS SUBSCRIBER, Subscribes to message spin right and robot spins right
-ros::Subscriber<std_msgs::Empty> sub6("motor_spin_right", &message_spin_right);
+ros::Subscriber<std_msgs::String> sub6("motor_spin_right", &message_spin_right);
 
 void setup()
 { 

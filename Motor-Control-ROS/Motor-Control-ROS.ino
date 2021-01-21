@@ -12,7 +12,7 @@
 // Open cmd -> roscore
 // Open another cmd -> rosrun rosserial_python serial_node.py /dev/ttyACM0 
 // (ACM0 is your USB port), (Will throw error if Bluetooth is connected)
-// Open another cmd -> rostopic pub motor_forward std_msgs/Empty --once 
+// Open another cmd -> rostopic pub motor_forward std_msgs/String 'string' 
 // (Publisher sends a message 'message_forward to Subscriber)
 // When Changes been made in Arduino, before uploading kill the roscore, rosrun USB topics
 
@@ -43,7 +43,7 @@ void message_forward( const std_msgs::String& toggle_msg){
 }
 
 // Function 'ROBOT MOVEMENT PAUSE' in ROS Style ( Message, Type)
-void message_pause( const std_msgs::String& toggle_msgs){
+void message_pause( const std_msgs::String& toggle_msg){
 
   // Includes stop function
   stopping();
@@ -59,7 +59,7 @@ void message_backward( const std_msgs::String& toggle_msg){
 }
 
 // Function 'MOVE LEFT' in ROS Style ( Message, Type)
-void message_left( const std_msgs::String& toggle_msgs){
+void message_left( const std_msgs::String& toggle_msg){
 
   // Includes left function
   left();
@@ -75,7 +75,7 @@ void message_right( const std_msgs::String& toggle_msg){
 }
 
 // Function 'SPIN LEFT' in ROS Style ( Message, Type)
-void message_spin_left( const std_msgs::String& toggle_msgs){
+void message_spin_left( const std_msgs::String& toggle_msg){
 
   // Includes spin to the left function
   spinLeft();
@@ -83,7 +83,7 @@ void message_spin_left( const std_msgs::String& toggle_msgs){
 }
 
 // Function 'SPIN RIGHT' in ROS Style ( Message, Type)
-void message_spin_right( const std_msgs::String& toggle_msgs){
+void message_spin_right( const std_msgs::String& toggle_msg){
 
   // Includes spin to the right function
   spinRight();
@@ -197,13 +197,13 @@ void left()
   motor_Right.setSpeed(255);
 
   // Motor .run built in ADAFRUIT Motor Shield functionality
-  motor_Right.run(FORWARD);
+  motor_Right.run(RELEASE);
 
   // You need to set a speed to work
   motor_Left.setSpeed(255);
 
   // Motor .run built in ADAFRUIT Motor Shield functionality
-  motor_Left.run(RELEASE);
+  motor_Left.run(FORWARD);
 }
 
 // Drive right function
@@ -215,13 +215,13 @@ void right()
   motor_Right.setSpeed(255);
   
   // Motor .run built in ADAFRUIT Motor Shield functionality
-  motor_Right.run(RELEASE);
+  motor_Right.run(FORWARD);
   
   // You need to set a speed to work
   motor_Left.setSpeed(255);
   
   // Motor .run built in ADAFRUIT Motor Shield functionality
-  motor_Left.run(FORWARD);
+  motor_Left.run(RELEASE);
 }
 
 // Stop driving function
@@ -251,13 +251,13 @@ void spinRight()
   motor_Right.setSpeed(255);
   
   // Motor .run built in ADAFRUIT Motor Shield functionality
-  motor_Right.run(BACKWARD);
+  motor_Right.run(FORWARD);
 
   // You need to set a speed to work
   motor_Left.setSpeed(255);
 
   // Motor .run built in ADAFRUIT Motor Shield functionality
-  motor_Left.run(FORWARD);
+  motor_Left.run(BACKWARD);
 }
 
 // Spin around to the left function
@@ -269,11 +269,11 @@ void spinLeft()
   motor_Right.setSpeed(255);
 
   // Motor .run built in ADAFRUIT Motor Shield functionality
-  motor_Right.run(FORWARD);
+  motor_Right.run(BACKWARD);
 
   // You need to set a speed to work
   motor_Left.setSpeed(255);
   
   // Motor .run built in ADAFRUIT Motor Shield functionality
-  motor_Left.run(BACKWARD);
+  motor_Left.run(FORWARD);
 }

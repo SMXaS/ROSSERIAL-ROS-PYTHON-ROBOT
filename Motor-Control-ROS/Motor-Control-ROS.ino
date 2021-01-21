@@ -13,7 +13,7 @@
 // Open another cmd -> rosrun rosserial_python serial_node.py /dev/ttyACM0 
 // (ACM0 is your USB port), (Will throw error if Bluetooth is connected)
 // Open another cmd -> rostopic pub motor_forward std_msgs/Empty --once 
-// (Publisher sends a message 'motor_forward to Subscriber)
+// (Publisher sends a message 'message_forward to Subscriber)
 // When Changes been made in Arduino, before uploading kill the roscore, rosrun USB topics
 
 // Including Adafruit Motorshield V1

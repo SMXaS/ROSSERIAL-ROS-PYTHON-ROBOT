@@ -1,5 +1,5 @@
 # ROSSERIAL-ROS-PYTHON-ROBOT
- * ROS connected with ROSSERIAL SUBSRIBERS and PYTHON PUBLISHERS
+ * ROS connected with ROSSERIAL SUBSCRIBERS and PYTHON PUBLISHERS
  * ROBOT CONTROL + IMAGE RECOGNITION
 
 ## Usage
@@ -21,7 +21,7 @@
  * Tensorflow
  * Keras
  * Images
- * ROS Publishers/Subsribers
+ * ROS Publishers/Subscribers
 
 ## Contributing
 * Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
